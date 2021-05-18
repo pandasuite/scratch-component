@@ -411,13 +411,11 @@ function ScratchIt() {
 
     const pw = document.body.clientWidth;
     const ph = document.body.clientHeight;
+    const ratioP = ph / pw;
 
-    const ratioX = pw / w;
-    const ratioY = ph / h;
-
-    if (ratioY < ratioX) {
+    if (ratio > ratioP) {
+      parentEl.style.width = (ph / ratio) + 'px';
       parentEl.style.height = ph + 'px';
-      parentEl.style.width = (ph * ratio) + 'px';
     } else {
       parentEl.style.width = pw + 'px';
       parentEl.style.height = (pw * ratio) + 'px';
@@ -451,12 +449,15 @@ function ScratchIt() {
         resizeParentEl(image);
       }
 
-      // IE9 needs a breather before it will reliably get the contents of the image to paint to the canvas
-      if (isIE9()) {
-        setTimeout(() => { callback(imageToCanvas(image)); }, 300);
-      } else {
-        callback(imageToCanvas(image));
-      }
+      window.requestAnimationFrame(() => {
+        // IE9 needs a breather before it will reliably get the contents of the image to paint to the canvas
+        if (isIE9()) {
+          setTimeout(() => { callback(imageToCanvas(image)); }, 300);
+        } else {
+          callback(imageToCanvas(image));
+        }
+      });
+
     };
 
     image.onerror = function () {
