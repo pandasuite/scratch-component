@@ -10,9 +10,9 @@
   "properties": [
     {
       "id": "hideOnRevealed",
-      "name": "Hide on revealed",
+      "name": "Delete the image at revelation",
       "locale_name": {
-        "fr_FR": "Cacher à la révélation"
+        "fr_FR": "Supprimer l'image à la révélation"
       },
       "type": "Boolean",
       "value": true

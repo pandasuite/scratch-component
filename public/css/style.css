@@ -13,22 +13,9 @@ img {
   -ms-interpolation-mode: bicubic;
 }
 
-#scratch {
-  position: relative;
-  display: inline-block;
-  font-size: 0;
-  width: 100%;
-  height: 100%;
-}
-
 #scratch canvas {
-  position: absolute;
   width: 100%;
   height: 100%;
-  
-  object-fit: contain;
-  object-position: top left;
-
   top: 0;
   left: 0;
   bottom: 0;

@@ -62,7 +62,7 @@ function ScratchIt() {
       overlayLoaded = true;
       overlayCanvas = canvas;
       onCanvasLoaded();
-    });
+    }, true);
     getCanvasFromImage(brushUrl, (canvas) => {
       brushLoaded = true;
       brushCanvas = canvas;
@@ -404,6 +404,26 @@ function ScratchIt() {
     return (av.indexOf('MSIE') !== -1 && parseFloat(av.split('MSIE')[1]) <= 9);
   };
 
+  const resizeParentEl = function (image) {
+    const w = image.naturalWidth;
+    const h = image.naturalHeight;
+    const ratio = h / w;
+
+    const pw = document.body.clientWidth;
+    const ph = document.body.clientHeight;
+
+    const ratioX = pw / w;
+    const ratioY = ph / h;
+
+    if (ratioY < ratioX) {
+      parentEl.style.height = ph + 'px';
+      parentEl.style.width = (ph * ratio) + 'px';
+    } else {
+      parentEl.style.width = pw + 'px';
+      parentEl.style.height = (pw * ratio) + 'px';
+    }
+  };
+
   /**
    * Loads an image into a canvas object
    *
@@ -414,7 +434,7 @@ function ScratchIt() {
    * @param {function} callback
    * @return {void}
    */
-  var getCanvasFromImage = function (imgUrl, callback) {
+  var getCanvasFromImage = function (imgUrl, callback, resize) {
     let image;
 
     // bailout if the user didn't supply a valid callback, image URL, the browser doesn't support
@@ -427,6 +447,10 @@ function ScratchIt() {
     image = new Image();
 
     image.onload = function () {
+      if (resize) {
+        resizeParentEl(image);
+      }
+
       // IE9 needs a breather before it will reliably get the contents of the image to paint to the canvas
       if (isIE9()) {
         setTimeout(() => { callback(imageToCanvas(image)); }, 300);
