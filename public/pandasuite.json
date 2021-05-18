@@ -4,89 +4,81 @@
 
   "system": {
     "localization": false,
-    "actions": [
-      {
-        "id": "toMarker",
-        "name": "Change Image",
-        "locale_name": {
-          "fr_FR": "Change Image"
-        },
-        "params": [
-          { "id": "useless", "name": "Useless", "locale_name": {"fr_FR": "Inutile"}, "type": "Boolean" }
-        ]
-      }
-    ],
-    "events": [
-      {
-        "id": "triggerMarker",
-        "name": "Image",
-        "locale_name": {
-          "fr_FR": "Image"
-        }
-      }
-    ],
-    "markers": [
-      {
-        "params": [
-          { "id": "src", "name": "Source", "locale_name": {"fr_FR": "Source"}, "type": "String" }
-        ]
-      }
-    ]
+    "markers": false
   },
 
   "properties": [
     {
-      "id": "searchTerm",
-      "name": "Search Term",
+      "id": "hideOnRevealed",
+      "name": "Hide on revealed",
       "locale_name": {
-        "fr_FR": "Terme de recherche"
+        "fr_FR": "Cacher à la révélation"
       },
-      "type": "String",
-      "value": "panda"
+      "type": "Boolean",
+      "value": true
+    },
+    {
+      "id": "revealPercent",
+      "name": "Reveal Percent",
+      "locale_name": {
+        "fr_FR": "Pourcentage de révélation"
+      },
+      "type": "Integer",
+      "value": 50
     }
   ],
 
   "events": [
     {
-      "id": "imageChanged",
-      "name": "Image Changed",
+      "id": "onLoaded",
+      "name": "Image loaded",
       "locale_name": {
-        "fr_FR": "Image Changée"
+        "fr_FR": "Image chargée"
+      }
+    },
+    {
+      "id": "onStartScratching",
+      "name": "Start scratching",
+      "locale_name": {
+        "fr_FR": "Démarrage du grattage"
+      }
+    },
+    {
+      "id": "onEndScratching",
+      "name": "End scratching",
+      "locale_name": {
+        "fr_FR": "Fin du grattage"
+      }
+    },
+    {
+      "id": "revealed",
+      "name": "Revealed",
+      "locale_name": {
+        "fr_FR": "Révélé"
+      }
+    },
+    {
+      "id": "notSupported",
+      "name": "Device not compatible",
+      "locale_name": {
+        "fr_FR": "Appareil non compatible"
       }
     }
   ],
 
   "actions": [
     {
-      "id": "changeColor",
-      "name": "Change Color",
-      "params": [
-        {
-          "id": "backgroundColor",
-          "name": "Background Color",
-          "locale_name": {
-            "fr_FR": "Couleur de fond"
-          },
-          "type": "String",
-          "value": "#FFFFFF"
-        }
-      ]
-    }
-  ],
-
-  "synchronization": [
-    {
-      "id": "synchroImages",
-      "name": "Synchronize images",
+      "id": "reveal",
+      "name": "Reveal",
       "locale_name": {
-        "fr_FR": "Synchroniser images"
+        "fr_FR": "Révéler"
       }
     }
   ],
 
   "resources": [
     {
-      "id": "my_image.png",
+      "id": "overlayImgUrl",
       "type": "Image",
       "localization": false
     }
