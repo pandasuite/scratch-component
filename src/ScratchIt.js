@@ -115,12 +115,12 @@ function ScratchIt() {
     if (window.PointerEvent) {
       overlayCanvas.addEventListener('pointerdown', onPointerDown);
       body.addEventListener('pointerup', onPointerUp);
-      body.addEventListener('pointerleave', onPointerUp);
+      // body.addEventListener('pointerleave', onPointerUp);
       body.addEventListener('pointermove', onPointerMove);
     } else {
       overlayCanvas.addEventListener('mousedown', onPointerDown);
       body.addEventListener('mouseup', onPointerUp);
-      body.addEventListener('mouseleave', onPointerUp);
+      // body.addEventListener('mouseleave', onPointerUp);
       body.addEventListener('mousemove', onPointerMove);
 
       overlayCanvas.addEventListener('touchstart', onPointerDown);
