@@ -9,6 +9,15 @@
 
   "properties": [
     {
+      "id": "revealPercent",
+      "name": "Reveal Percent\t\t",
+      "locale_name": {
+        "fr_FR": "Pourcentage de révélation\t"
+      },
+      "type": "Integer",
+      "value": 50
+    },
+    {
       "id": "hideOnRevealed",
       "name": "Delete the image at revelation",
       "locale_name": {
@@ -18,13 +27,14 @@
       "value": true
     },
     {
-      "id": "revealPercent",
-      "name": "Reveal Percent",
+      "id": "brushSize",
+      "name": "Brush size\t\t",
       "locale_name": {
-        "fr_FR": "Pourcentage de révélation"
+        "fr_FR": "Taille du pinceau\t\t"
       },
       "type": "Integer",
-      "value": 50
+      "value": 100,
+      "separator": true
     }
   ],
 

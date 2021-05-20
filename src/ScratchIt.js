@@ -25,6 +25,7 @@ function ScratchIt() {
   let loadedCallback;
   let downCallback;
   let upCallback;
+  let brushSize = 100;
 
   /**
    * Constructor
@@ -43,10 +44,11 @@ function ScratchIt() {
 
     const callback = arguments.length > 3 ? arguments[3] : function () {};
     const threshold = Math.max(0, Math.min(100, arguments.length > 4 ? arguments[4] * 1 : 0));
+    brushSize = arguments.length > 5 ? arguments[5] * 1 : 100;
 
-    loadedCallback = arguments.length > 5 ? arguments[5] : function () {};
-    downCallback = arguments.length > 6 ? arguments[6] : function () {};
-    upCallback = arguments.length > 7 ? arguments[7] : function () {};
+    loadedCallback = arguments.length > 6 ? arguments[6] : function () {};
+    downCallback = arguments.length > 7 ? arguments[7] : function () {};
+    upCallback = arguments.length > 8 ? arguments[8] : function () {};
 
     if (!isDomElement(parentEl)) {
       throw 'ScratchIt() requires parent element to be a valid DOM Element."';
@@ -432,7 +434,7 @@ function ScratchIt() {
    * @param {function} callback
    * @return {void}
    */
-  var getCanvasFromImage = function (imgUrl, callback, resize) {
+  var getCanvasFromImage = function (imgUrl, callback, isOverlay) {
     let image;
 
     // bailout if the user didn't supply a valid callback, image URL, the browser doesn't support
@@ -445,16 +447,16 @@ function ScratchIt() {
     image = new Image();
 
     image.onload = function () {
-      if (resize) {
+      if (isOverlay) {
         resizeParentEl(image);
       }
 
       window.requestAnimationFrame(() => {
         // IE9 needs a breather before it will reliably get the contents of the image to paint to the canvas
         if (isIE9()) {
-          setTimeout(() => { callback(imageToCanvas(image)); }, 300);
+          setTimeout(() => { callback(imageToCanvas(image, isOverlay)); }, 300);
         } else {
-          callback(imageToCanvas(image));
+          callback(imageToCanvas(image, isOverlay));
         }
       });
 
@@ -512,11 +514,12 @@ function ScratchIt() {
    * @param {function} callback Function to call after the image has been drawn to the canvas
    * @returns {void}
    */
-  var imageToCanvas = function (img) {
+  var imageToCanvas = function (img, isOverlay) {
     const canvas = document.createElement('CANVAS');
     const ctx = canvas.getContext('2d');
-    const w = img.naturalWidth;
-    const h = img.naturalHeight;
+
+    const w = isOverlay ? img.naturalWidth : brushSize;
+    const h = isOverlay ? img.naturalHeight : brushSize;
 
     canvas.width = w;
     canvas.height = h;

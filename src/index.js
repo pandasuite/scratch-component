@@ -27,6 +27,7 @@ function myInit() {
       PandaBridge.resolvePath('brushImgUrl', 'images/brush.png'),
       reveal,
       properties.revealPercent,
+      properties.brushSize,
       () => {
         PandaBridge.send('onLoaded');
       },

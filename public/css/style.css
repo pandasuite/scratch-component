@@ -13,6 +13,10 @@ img {
   -ms-interpolation-mode: bicubic;
 }
 
+#scratch {
+  overflow: hidden;
+}
+
 #scratch canvas {
   width: 100%;
   height: 100%;
