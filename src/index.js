@@ -16,6 +16,11 @@ function reveal() {
       document.getElementsByTagName('canvas')[0].style.width = '100%';
     }
   }
+  PandaBridge.send(PandaBridge.UPDATED, {
+    queryable: {
+      revealed: true,
+    },
+  });
   PandaBridge.send('revealed');
 }
 
