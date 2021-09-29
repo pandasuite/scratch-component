@@ -10,27 +10,27 @@
   "properties": [
     {
       "id": "revealPercent",
-      "name": "Reveal Percent\t\t",
+      "name": "Required scratched out",
       "locale_name": {
-        "fr_FR": "Pourcentage de révélation\t"
+        "fr_FR": "Grattage requis"
       },
       "type": "Integer",
       "value": 50
     },
     {
       "id": "hideOnRevealed",
-      "name": "Delete the image at revelation",
+      "name": "Delete image after reveal",
       "locale_name": {
-        "fr_FR": "Supprimer l'image à la révélation"
+        "fr_FR": "Supprimer image après révélation"
       },
       "type": "Boolean",
       "value": true
     },
     {
       "id": "brushSize",
-      "name": "Brush size\t\t",
+      "name": "Brush size",
       "locale_name": {
-        "fr_FR": "Taille du pinceau\t\t"
+        "fr_FR": "Taille du pinceau"
       },
       "type": "Integer",
       "value": 100,
