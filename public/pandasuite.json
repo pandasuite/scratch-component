@@ -95,6 +95,12 @@
   ],
 
   "queryable": {
-    "revealed": false
+    "revealed": false,
+    "__desc_revealed": {
+      "name": "Revealed",
+      "locale_name": {
+        "fr_FR": "Révélé"
+      }
+    }
   }
 }
