@@ -90,7 +90,8 @@
     {
       "id": "overlayImgUrl",
       "type": "Image",
-      "localization": false
+      "localization": false,
+      "required": true
     }
   ],
 
