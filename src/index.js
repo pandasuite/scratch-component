@@ -52,10 +52,10 @@ PandaBridge.init(() => {
   PandaBridge.onLoad((pandaData) => {
     properties = pandaData.properties;
 
-    if (document.readyState === 'complete') {
-      myInit();
-    } else {
+    if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', myInit, false);
+    } else {
+      myInit();
     }
   });
 
