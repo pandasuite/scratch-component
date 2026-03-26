@@ -1,12 +1,18 @@
 {
+  "meta": {
+    "stype": "scratch",
+    "componentURL": "https://github.com/pandasuite/scratch-component/",
+    "description": "Scratch-to-reveal interaction — users scratch an overlay image to uncover content underneath. Configurable reveal threshold, brush size, and auto-hide. Used for gamification, promotions, and interactive reveals.",
+    "locale_description": {
+      "fr_FR": "Interaction gratter-pour-révéler — les utilisateurs grattent une image de couverture pour découvrir le contenu en dessous. Seuil de révélation, taille du pinceau et masquage automatique configurables. Utilisé pour la gamification, les promotions et les révélations interactives."
+    }
+  },
   "version": "2.0.0",
   "main": "",
-
   "system": {
     "localization": false,
     "markers": false
   },
-
   "properties": [
     {
       "id": "revealPercent",
@@ -15,7 +21,11 @@
         "fr_FR": "Grattage requis"
       },
       "type": "Integer",
-      "value": 50
+      "value": 50,
+      "description": "Percentage of the overlay that must be scratched to trigger the revealed event (0 to 100).",
+      "locale_description": {
+        "fr_FR": "Pourcentage de la couverture qui doit être gratté pour déclencher l'événement de révélation (0 à 100)."
+      }
     },
     {
       "id": "hideOnRevealed",
@@ -24,7 +34,11 @@
         "fr_FR": "Supprimer image après révélation"
       },
       "type": "Boolean",
-      "value": true
+      "value": true,
+      "description": "Hide the scratch overlay automatically when the reveal threshold is reached.",
+      "locale_description": {
+        "fr_FR": "Masquer automatiquement la couverture à gratter quand le seuil de révélation est atteint."
+      }
     },
     {
       "id": "brushSize",
@@ -34,16 +48,23 @@
       },
       "type": "Integer",
       "value": 100,
-      "separator": true
+      "separator": true,
+      "description": "Size in pixels of the scratch brush.",
+      "locale_description": {
+        "fr_FR": "Taille en pixels du pinceau de grattage."
+      }
     }
   ],
-
   "events": [
     {
       "id": "onLoaded",
       "name": "Image loaded",
       "locale_name": {
         "fr_FR": "Image chargée"
+      },
+      "description": "Fires when the scratch component finishes loading.",
+      "locale_description": {
+        "fr_FR": "Se déclenche quand le composant à gratter termine son chargement."
       }
     },
     {
@@ -51,6 +72,10 @@
       "name": "Start scratching",
       "locale_name": {
         "fr_FR": "Démarrage du grattage"
+      },
+      "description": "Fires when the user starts scratching.",
+      "locale_description": {
+        "fr_FR": "Se déclenche quand l'utilisateur commence à gratter."
       }
     },
     {
@@ -58,6 +83,10 @@
       "name": "End scratching",
       "locale_name": {
         "fr_FR": "Fin du grattage"
+      },
+      "description": "Fires when the user stops scratching.",
+      "locale_description": {
+        "fr_FR": "Se déclenche quand l'utilisateur arrête de gratter."
       }
     },
     {
@@ -65,6 +94,10 @@
       "name": "Revealed",
       "locale_name": {
         "fr_FR": "Révélé"
+      },
+      "description": "Fires when the scratch percentage exceeds the reveal threshold.",
+      "locale_description": {
+        "fr_FR": "Se déclenche quand le pourcentage de grattage dépasse le seuil de révélation."
       }
     },
     {
@@ -72,35 +105,48 @@
       "name": "Device not compatible",
       "locale_name": {
         "fr_FR": "Appareil non compatible"
+      },
+      "description": "Fires when the device does not support the scratch interaction.",
+      "locale_description": {
+        "fr_FR": "Se déclenche quand l'appareil ne supporte pas l'interaction de grattage."
       }
     }
   ],
-
   "actions": [
     {
       "id": "reveal",
       "name": "Reveal",
       "locale_name": {
         "fr_FR": "Révéler"
+      },
+      "description": "Programmatically reveal the content underneath without scratching.",
+      "locale_description": {
+        "fr_FR": "Révéler programmatiquement le contenu en dessous sans gratter."
       }
     }
   ],
-
   "resources": [
     {
       "id": "overlayImgUrl",
       "type": "Image",
       "localization": false,
-      "required": true
+      "required": true,
+      "description": "Overlay image that users scratch to reveal content underneath.",
+      "locale_description": {
+        "fr_FR": "Image de couverture que les utilisateurs grattent pour révéler le contenu en dessous."
+      }
     }
   ],
-
   "queryable": {
     "revealed": false,
     "__desc_revealed": {
       "name": "Revealed",
       "locale_name": {
         "fr_FR": "Révélé"
+      },
+      "description": "Whether the content has been fully revealed (threshold reached).",
+      "locale_description": {
+        "fr_FR": "Si le contenu a été entièrement révélé (seuil atteint)."
       }
     }
   }
